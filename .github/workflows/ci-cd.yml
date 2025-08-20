@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: fernando-guzman-dotnet/prueba-tecnica-blooming-tec
+  IMAGE_NAME: fernandoguzman/prueba-tecnica-blooming-tec
 
 jobs:
   build-and-test:
