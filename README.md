@@ -1,13 +1,8 @@
-
 # BloomingTec Todo API
 
 API REST para gestión de tareas desarrollada con .NET 8 y Clean Architecture.
 
-**Estado del proyecto**: ✅ Completamente funcional con Docker y GitHub Actions configurados
-
-## 🐳 Docker Hub
-
-### **Imagen Disponible**
+## Docker Hub
 
 La aplicación está disponible como imagen Docker en Docker Hub:
 
@@ -21,10 +16,9 @@ docker pull fernandoguzman/prueba-tecnica-blooming-tec:main
 
 **Repositorio**: [fernandoguzman/prueba-tecnica-blooming-tec](https://hub.docker.com/r/fernandoguzman/prueba-tecnica-blooming-tec)
 
-### **Ejecución Rápida con Docker**
+### Ejecución rápida con Docker
 
 ```bash
-# Comando mínimo para ejecutar la API
 docker run -d \
   --name todo-api \
   -p 5000:8080 \
@@ -36,7 +30,7 @@ docker run -d \
 curl -u admin:password http://localhost:5000/tasks
 ```
 
-### **Variables de Entorno Configurables**
+### Variables de entorno configurables
 
 ```bash
 docker run -d \
@@ -48,128 +42,102 @@ docker run -d \
   fernandoguzman/prueba-tecnica-blooming-tec:latest
 ```
 
-## 📋 Dependencias Mínimas
+## Dependencias mínimas
 
-### **Para Ejecutar con Docker (Recomendado)**
+### Para ejecutar con Docker (recomendado)
 
-- **Docker Desktop** o **Docker Engine** (versión 20.10+)
-- **2GB RAM** mínimo
-- **1GB espacio** en disco
+* Docker Desktop o Docker Engine (20.10+)
+* 2GB RAM mínimo
+* 1GB espacio en disco
 
-### **Para Desarrollo Local**
+### Para desarrollo local
 
-- **.NET 8.0 SDK** (versión 8.0.0 o superior)
-- **SQLite** (incluido con .NET)
-- **4GB RAM** recomendado
-- **2GB espacio** en disco
+* .NET 8.0 SDK (8.0.0 o superior)
+* SQLite (incluido con .NET)
+* 4GB RAM recomendado
+* 2GB espacio en disco
 
-### **Para Producción**
+### Para producción
 
-- **.NET 8.0 Runtime** (versión 8.0.0 o superior)
-- **SQLite** o **SQL Server** (configurable)
-- **2GB RAM** mínimo
-- **1GB espacio** en disco
+* .NET 8.0 Runtime (8.0.0 o superior)
+* SQLite o SQL Server (configurable)
+* 2GB RAM mínimo
+* 1GB espacio en disco
 
-## 🚀 Inicio Rápido
+## Inicio rápido
 
-### **Opción 1: Docker (Más Simple)**
+### Opción 1: Docker
 
 ```bash
-# 1. Descargar la imagen
 docker pull fernandoguzman/prueba-tecnica-blooming-tec:latest
-
-# 2. Ejecutar la API
 docker run -d --name todo-api -p 5000:8080 \
   -e BASIC_USER=admin -e BASIC_PASS=password \
   fernandoguzman/prueba-tecnica-blooming-tec:latest
-
-# 3. Probar la API
 curl -u admin:password http://localhost:5000/tasks
 ```
 
-### **Opción 2: Desarrollo Local**
+### Opción 2: Desarrollo local
 
 ```bash
-# 1. Clonar el repositorio
 git clone https://github.com/fernando-guzman-dotnet/prueba-tecnica-blooming-tec.git
 cd prueba-tecnica-blooming-tec
-
-# 2. Restaurar dependencias
 dotnet restore
-
-# 3. Ejecutar la aplicación
 dotnet run --project src/BloomingTec.Todo.Api
-
-# 4. Probar la API
 curl -u admin:password http://localhost:5000/tasks
 ```
 
-### **Opción 3: Docker Compose**
+### Opción 3: Docker Compose
 
 ```bash
-# 1. Clonar el repositorio
 git clone https://github.com/fernando-guzman-dotnet/prueba-tecnica-blooming-tec.git
 cd prueba-tecnica-blooming-tec
-
-# 2. Ejecutar con Docker Compose
 docker-compose -f docker-compose.dev.yml up --build
-
-# 3. Probar la API
 curl -u admin:password http://localhost:5000/tasks
 ```
 
-## 🔐 Credenciales por Defecto
+## Credenciales por defecto
 
-- **Usuario**: `admin`
-- **Contraseña**: `password`
+* Usuario: `admin`
+* Contraseña: `password`
 
-**⚠️ IMPORTANTE**: Cambia estas credenciales en producción usando variables de entorno.
+**Importante**: Cambia estas credenciales en producción usando variables de entorno.
 
-## 📱 Acceso a la API
+## Acceso a la API
 
-- **URL Base**: `http://localhost:5000`
-- **Swagger UI**: `http://localhost:5000/swagger` (requiere autenticación)
-- **Health Check**: `http://localhost:5000/health`
+* URL Base: `http://localhost:5000`
+* Swagger UI: `http://localhost:5000/swagger` (requiere autenticación)
+* Health Check: `http://localhost:5000/health`
 
-## 🐳 Comandos Docker Útiles
+## Comandos Docker útiles
 
 ```bash
-# Ver logs de la aplicación
 docker logs todo-api
-
-# Detener la aplicación
 docker stop todo-api
-
-# Reiniciar la aplicación
 docker restart todo-api
-
-# Eliminar el contenedor
 docker rm todo-api
-
-# Ver estadísticas del contenedor
 docker stats todo-api
 ```
 
-## 🔧 Tecnologías
+## Tecnologías
 
-- **Lenguaje:** C# (.NET 8)
-- **Base de datos:** SQLite con Entity Framework Core
-- **Autenticación:** Basic Auth (configurable por variables de entorno)
-- **Documentación:** Swagger / OpenAPI
-- **Pruebas:** xUnit con WebApplicationFactory
-- **Containerización:** Docker
+* Lenguaje: C# (.NET 8)
+* Base de datos: SQLite con Entity Framework Core
+* Autenticación: Basic Auth (configurable)
+* Documentación: Swagger / OpenAPI
+* Pruebas: xUnit con WebApplicationFactory
+* Containerización: Docker
 
 ## Arquitectura
 
-- **Domain:** Entidades y reglas de negocio
-- **Application:** Casos de uso y lógica
-- **Infrastructure:** Persistencia y servicios externos
-- **API:** Endpoints HTTP (Minimal APIs)
+* Domain: Entidades y reglas de negocio
+* Application: Casos de uso y lógica
+* Infrastructure: Persistencia y servicios externos
+* API: Endpoints HTTP (Minimal APIs)
 
 ## Endpoints
 
-| Método | Endpoint     | Descripción                |
-|--------|-------------|----------------------------|
+| Método | Endpoint    | Descripción                |
+| ------ | ----------- | -------------------------- |
 | GET    | /tasks      | Listar tareas con filtros  |
 | GET    | /tasks/{id} | Obtener tarea por ID       |
 | POST   | /tasks      | Crear nueva tarea          |
@@ -177,43 +145,47 @@ docker stats todo-api
 | DELETE | /tasks/{id} | Eliminar tarea             |
 
 ### Parámetros de consulta (`GET /tasks`)
-- `search`: búsqueda por título
-- `isCompleted`: filtrar por estado (true/false)
-- `createdFrom`, `createdTo`: rango de fechas
-- `sortBy`: `createdAt`, `title`, `dueDate`, `isCompleted`
-- `sortDesc`: orden descendente (true por defecto)
+
+* `search`: búsqueda por título
+* `isCompleted`: filtrar por estado (true/false)
+* `createdFrom`, `createdTo`: rango de fechas
+* `sortBy`: `createdAt`, `title`, `dueDate`, `isCompleted`
+* `sortDesc`: orden descendente (true por defecto)
 
 ### Validaciones
-- Título obligatorio (≤100 caracteres, único para tareas activas)
-- Descripción ≤500 caracteres
-- Fecha de vencimiento obligatoria
-- Título corto requiere descripción
+
+* Título obligatorio (≤100 caracteres, único para tareas activas)
+* Descripción ≤500 caracteres
+* Fecha de vencimiento obligatoria
+* Título corto requiere descripción
 
 ## Autenticación
 
-- **Basic Auth en todos los endpoints**
-- Credenciales por defecto: `admin:password`
-- Variables de entorno:
+* Basic Auth en todos los endpoints
+* Credenciales por defecto: `admin:password`
+* Variables de entorno:
+
   ```bash
   BASIC_USER=admin
   BASIC_PASS=password
+  ```
 
-## Manejo de Errores
+## Manejo de errores
 
-* `400 Bad Request`: parámetros inválidos, validaciones fallidas
-* `401 Unauthorized`: credenciales ausentes/incorrectas
-* `404 Not Found`: recurso no encontrado
-* `500 Internal Server Error`: errores inesperados
+* 400 Bad Request: parámetros inválidos, validaciones fallidas
+* 401 Unauthorized: credenciales incorrectas o ausentes
+* 404 Not Found: recurso no encontrado
+* 500 Internal Server Error: errores inesperados
 
 ## Documentación
 
-* **Swagger UI:** [http://localhost:5000/swagger](http://localhost:5000/swagger)
-* **OpenAPI JSON:** [http://localhost:5000/swagger/v1/swagger.json](http://localhost:5000/swagger/v1/swagger.json)
+* Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger)
+* OpenAPI JSON: [http://localhost:5000/swagger/v1/swagger.json](http://localhost:5000/swagger/v1/swagger.json)
 * Soporta autenticación con botón *Authorize*
 
 ## Ejemplos con cURL
 
-### Crear Tarea
+### Crear tarea
 
 ```bash
 curl -X POST "http://localhost:5000/tasks" \
@@ -222,14 +194,14 @@ curl -X POST "http://localhost:5000/tasks" \
   -d '{"title":"Completar documentación","description":"Escribir README","dueDate":"2025-12-31T23:59:59Z"}'
 ```
 
-### Listar Tareas
+### Listar tareas
 
 ```bash
 curl -X GET "http://localhost:5000/tasks?search=documentación&sortBy=createdAt" \
   -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ="
 ```
 
-### Actualizar Tarea
+### Actualizar tarea
 
 ```bash
 curl -X PUT "http://localhost:5000/tasks/{id}" \
@@ -238,14 +210,14 @@ curl -X PUT "http://localhost:5000/tasks/{id}" \
   -d '{"title":"Título actualizado","isCompleted":true}'
 ```
 
-### Eliminar Tarea
+### Eliminar tarea
 
 ```bash
 curl -X DELETE "http://localhost:5000/tasks/{id}" \
   -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ="
 ```
 
-## Ejecución y Despliegue
+## Ejecución y despliegue
 
 ### Local
 
@@ -274,7 +246,7 @@ dotnet test
 
 Cobertura: autenticación, CRUD, validaciones, manejo de errores y base de datos en memoria.
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 src/
@@ -290,5 +262,3 @@ tests/
 ## Licencia
 
 © BloomingTec 2025
-
-
