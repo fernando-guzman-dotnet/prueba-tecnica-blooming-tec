@@ -1,7 +1,9 @@
 
 # BloomingTec Todo API
 
-API REST para gestión de tareas con autenticación básica. Construida en **.NET 8** con **arquitectura limpia**.
+API REST para gestión de tareas desarrollada con .NET 8 y Clean Architecture.
+
+**Estado del proyecto**: ✅ Completamente funcional con Docker y GitHub Actions configurados
 
 ## Tecnologías
 
