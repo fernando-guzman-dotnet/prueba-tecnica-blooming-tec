@@ -5,7 +5,152 @@ API REST para gestión de tareas desarrollada con .NET 8 y Clean Architecture.
 
 **Estado del proyecto**: ✅ Completamente funcional con Docker y GitHub Actions configurados
 
-## Tecnologías
+## 🐳 Docker Hub
+
+### **Imagen Disponible**
+
+La aplicación está disponible como imagen Docker en Docker Hub:
+
+```bash
+# Pull de la imagen oficial
+docker pull fernandoguzman/prueba-tecnica-blooming-tec:latest
+
+# O versión específica
+docker pull fernandoguzman/prueba-tecnica-blooming-tec:main
+```
+
+**Repositorio**: [fernandoguzman/prueba-tecnica-blooming-tec](https://hub.docker.com/r/fernandoguzman/prueba-tecnica-blooming-tec)
+
+### **Ejecución Rápida con Docker**
+
+```bash
+# Comando mínimo para ejecutar la API
+docker run -d \
+  --name todo-api \
+  -p 5000:8080 \
+  -e BASIC_USER=admin \
+  -e BASIC_PASS=password \
+  fernandoguzman/prueba-tecnica-blooming-tec:latest
+
+# Verificar que esté funcionando
+curl -u admin:password http://localhost:5000/tasks
+```
+
+### **Variables de Entorno Configurables**
+
+```bash
+docker run -d \
+  --name todo-api \
+  -p 5000:8080 \
+  -e BASIC_USER=tu_usuario \
+  -e BASIC_PASS=tu_password \
+  -e ASPNETCORE_ENVIRONMENT=Production \
+  fernandoguzman/prueba-tecnica-blooming-tec:latest
+```
+
+## 📋 Dependencias Mínimas
+
+### **Para Ejecutar con Docker (Recomendado)**
+
+- **Docker Desktop** o **Docker Engine** (versión 20.10+)
+- **2GB RAM** mínimo
+- **1GB espacio** en disco
+
+### **Para Desarrollo Local**
+
+- **.NET 8.0 SDK** (versión 8.0.0 o superior)
+- **SQLite** (incluido con .NET)
+- **4GB RAM** recomendado
+- **2GB espacio** en disco
+
+### **Para Producción**
+
+- **.NET 8.0 Runtime** (versión 8.0.0 o superior)
+- **SQLite** o **SQL Server** (configurable)
+- **2GB RAM** mínimo
+- **1GB espacio** en disco
+
+## 🚀 Inicio Rápido
+
+### **Opción 1: Docker (Más Simple)**
+
+```bash
+# 1. Descargar la imagen
+docker pull fernandoguzman/prueba-tecnica-blooming-tec:latest
+
+# 2. Ejecutar la API
+docker run -d --name todo-api -p 5000:8080 \
+  -e BASIC_USER=admin -e BASIC_PASS=password \
+  fernandoguzman/prueba-tecnica-blooming-tec:latest
+
+# 3. Probar la API
+curl -u admin:password http://localhost:5000/tasks
+```
+
+### **Opción 2: Desarrollo Local**
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/fernando-guzman-dotnet/prueba-tecnica-blooming-tec.git
+cd prueba-tecnica-blooming-tec
+
+# 2. Restaurar dependencias
+dotnet restore
+
+# 3. Ejecutar la aplicación
+dotnet run --project src/BloomingTec.Todo.Api
+
+# 4. Probar la API
+curl -u admin:password http://localhost:5000/tasks
+```
+
+### **Opción 3: Docker Compose**
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/fernando-guzman-dotnet/prueba-tecnica-blooming-tec.git
+cd prueba-tecnica-blooming-tec
+
+# 2. Ejecutar con Docker Compose
+docker-compose -f docker-compose.dev.yml up --build
+
+# 3. Probar la API
+curl -u admin:password http://localhost:5000/tasks
+```
+
+## 🔐 Credenciales por Defecto
+
+- **Usuario**: `admin`
+- **Contraseña**: `password`
+
+**⚠️ IMPORTANTE**: Cambia estas credenciales en producción usando variables de entorno.
+
+## 📱 Acceso a la API
+
+- **URL Base**: `http://localhost:5000`
+- **Swagger UI**: `http://localhost:5000/swagger` (requiere autenticación)
+- **Health Check**: `http://localhost:5000/health`
+
+## 🐳 Comandos Docker Útiles
+
+```bash
+# Ver logs de la aplicación
+docker logs todo-api
+
+# Detener la aplicación
+docker stop todo-api
+
+# Reiniciar la aplicación
+docker restart todo-api
+
+# Eliminar el contenedor
+docker rm todo-api
+
+# Ver estadísticas del contenedor
+docker stats todo-api
+```
+
+## 🔧 Tecnologías
 
 - **Lenguaje:** C# (.NET 8)
 - **Base de datos:** SQLite con Entity Framework Core
