@@ -1,0 +1,65 @@
+version: "3.9"
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: final
+    image: bloomingtec/todo-api:latest
+    container_name: bloomingtec-todo-api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - ASPNETCORE_ENVIRONMENT=Production
+      - BASIC_USER=${BASIC_USER:-admin}
+      - BASIC_PASS=${BASIC_PASS:-password}
+      - ConnectionStrings__DefaultConnection=Data Source=/data/todo.db
+      - DOTNET_RUNNING_IN_CONTAINER=true
+    ports:
+      - "5000:8080"
+    volumes:
+      - todo-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - todo-network
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: bloomingtec-todo-db
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${DB_PASSWORD:-YourStrong@Passw0rd}
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - db-data:/var/opt/mssql
+    networks:
+      - todo-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${DB_PASSWORD:-YourStrong@Passw0rd} -Q 'SELECT 1' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  todo-data:
+    driver: local
+  db-data:
+    driver: local
+
+networks:
+  todo-network:
+    driver: bridge
+
+

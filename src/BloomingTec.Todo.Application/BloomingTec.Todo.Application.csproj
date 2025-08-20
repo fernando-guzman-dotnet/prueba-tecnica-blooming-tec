@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\BloomingTec.Todo.Domain\BloomingTec.Todo.Domain.csproj" />
+    <ProjectReference Include="..\BloomingTec.Todo.Infrastructure\BloomingTec.Todo.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

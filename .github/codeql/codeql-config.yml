@@ -1,0 +1,26 @@
+name: "CodeQL Config"
+
+# Disable default queries and use custom query suites
+disable-default-queries: false
+
+# Query suites to use
+queries:
+  - uses: security-and-quality
+  - uses: security-extended
+
+# Paths to include/exclude
+paths:
+  - src/
+  - tests/
+
+# Paths to exclude
+paths-ignore:
+  - "**/*.test.cs"
+  - "**/*.spec.cs"
+  - "**/bin/**"
+  - "**/obj/**"
+  - "**/node_modules/**"
+
+# Languages to analyze
+languages:
+  - csharp
