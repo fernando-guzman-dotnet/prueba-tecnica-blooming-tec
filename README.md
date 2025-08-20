@@ -1,4 +1,4 @@
-````markdown
+
 # BloomingTec Todo API
 
 API REST para gestión de tareas con autenticación básica. Construida en **.NET 8** con **arquitectura limpia**.
@@ -50,7 +50,6 @@ API REST para gestión de tareas con autenticación básica. Construida en **.NE
   ```bash
   BASIC_USER=admin
   BASIC_PASS=password
-````
 
 ## Manejo de Errores
 
@@ -145,5 +144,4 @@ tests/
 
 © BloomingTec 2025
 
-```
-```
+
