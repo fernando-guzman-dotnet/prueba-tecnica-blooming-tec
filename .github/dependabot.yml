@@ -9,9 +9,9 @@ updates:
       time: "09:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     assignees:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     commit-message:
       prefix: "deps"
       prefix-development: "deps-dev"
@@ -26,9 +26,9 @@ updates:
       time: "09:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     assignees:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     commit-message:
       prefix: "ci"
       include: "scope"
@@ -42,9 +42,9 @@ updates:
       time: "09:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     assignees:
-      - "BloomingTec"
+      - "fernando-guzman-dotnet"
     commit-message:
       prefix: "docker"
       include: "scope"
